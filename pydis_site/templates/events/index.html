@@ -8,6 +8,60 @@
 
 {% block event_content %}
     <div class="box">
+        <h2 class="title is-4">Our Events</h2>
+        <p>
+            At Python Discord, we organise regular community events such as code jams, open-source hackathons, seasonal events, and community challenges.
+        </p>
+    </div>
+
+    <div class="box" id="calendar">
+        <h2 class="title is-4">Calendar</h2>
+        <div class="columns is-3" style="--columnGap: 0.75rem;">
+            <div class="column is-three-fifths">
+                <h3 class="is-size-5">Current</h3>
+                <div class="columns" style="--columnGap: 0.75rem;">
+                    <div class="column">
+                        <p>The 2021 Summer Code Jam is the <a href="{% url "events:page" path="code-jams" %}">Code Jam</a> for summer 2021. The theme is {theme} and the technology being used is {technology}.</p>
+                    </div>
+                    <div class="column">
+                        <h4 class="is-size-6"><a href="{% url "events:page" path="code-jams" %}">Code Jams</a></h4>
+                        <p>Code Jams are … (code jam summary)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column if-two-fifths">
+                <h3 class="is-size-5">Upcoming Events</h3>
+
+                {# These are dummy links and will need to be modified #}
+                <table class="table">
+                    <thead>
+                        <th>Date</th>
+                        <th>Event</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>June 8-28</td>
+                            <td><a href="#">Summer Code Jam</a></td>
+                        </tr>
+                        <tr>
+                            <td>Sept. 27-Oct.4</td>
+                            <td><a href="#">PyWeek 32</a></td>
+                        </tr>
+                        <tr>
+                            <td>Oct. 31</td>
+                            <td><a href="#">Hacktoberfest</a></td>
+                        </tr>
+                        <tr>
+                            <td>Dec. 20-27</td>
+                            <td><a href="#">Advent Of Code</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
         <h2 class="title is-4">Code Jams</h2>
         <p>Each year, we organize a Winter Code Jam and a Summer Code Jam. During these events, members of our community will work together in teams to create something amazing using a technology we picked for them. One such technology that was picked for the Winter Code Jam 2020 was Kivy, a cross-platform GUI framework.</p>
         <p>To help fuel the creative process, we provide a specific theme, like <strong>Ancient Technology</strong> or <strong>This App Hates You</strong>. At the end of the Code Jam, the projects are judged by Python Discord server staff members and guest judges from the larger Python community. The judges will consider creativity, code quality, teamwork, and adherence to the theme.</p>
@@ -90,7 +144,7 @@
         </div>
     </div>
 
-    <div class="box">
+    <div class="box" id="pyweek">
         <h2 class="title is-4">PyWeek</h2>
         <div class="columns is-3" style="--columnGap: 0.75rem;">
             <div class="column">
@@ -118,6 +172,5 @@
 {% endblock %}
 
 {% block sidebar %}
-    {% include "events/sidebar/upcoming-event.html" %}
-    {% include "events/sidebar/events-list.html" %}
+    {% include "events/sidebar/table-of-contents.html" %}
 {% endblock %}
